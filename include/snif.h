@@ -1,0 +1,39 @@
+#ifndef SNIF_H
+#define SNIF_H
+
+#define _ISOC99_SOURCE
+#define _POSIX_SOURCE
+#define _POSIX_C_SOURCE
+#define _XOPEN_SOURCE
+#define _SVID_SOURCE
+#define _BSD_SOURCE
+#define _GNU_SOURCE
+#define _DEFAULT_SOURCE
+
+#include <pcap.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+#include <sys/socket.h>
+#include <arpa/inet.h>
+#include <net/ethernet.h>
+#include <netinet/ip_icmp.h>
+#include <netinet/udp.h>
+#include <netinet/tcp.h>
+#include <netinet/ip.h>
+
+
+void process_packet(unsigned char *, const struct pcap_pkthdr *, const unsigned char *);
+
+void print_ethernet_header(const unsigned char *, int );
+
+void print_ip_header(const unsigned char *, int );
+
+void print_data (const unsigned char*, int );
+
+unsigned short compute_checksum(unsigned short *, unsigned int);
+
+void compute_ip_checksum(struct iphdr* );
+
+#endif
