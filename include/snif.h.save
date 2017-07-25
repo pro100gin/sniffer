@@ -36,10 +36,5 @@ unsigned short compute_checksum(unsigned short *, unsigned int);
 
 void compute_ip_checksum(struct iphdr* );
 
-void print_udp_packet(const u_char *, int);
-
-void print_tcp_packet(const u_char *, int);
-
-void print_icmp_packet(const u_char *, int);
-
 #endif
+
